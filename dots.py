@@ -159,7 +159,7 @@ arm_vecs = np.array([[0, leng],[0, 0], [0,0],[1,1]])
 running = True
 print(mat_for_degree(45))
 print(arm_vecs)
-dots_count = 1
+dots_count = 4
 dots = [mat_for_trans(r,r)] * dots_count
 count=3*dots_count
 consts = [mat_for_trans(r,r).dot(mat_for_degree(360*i/count).dot(mat_for_trans(r, 0))) for i in range(count)]
