@@ -19,8 +19,7 @@ def rotate(surface, angle, pivot, offset):
     return rotated_image, rect  # Return the rotated image and shifted rect.
 
 
-
-r = 300
+r = 400
 clock = pg.time.Clock()
 
 screen = pg.display.set_mode((2*r, 2*r))
@@ -31,7 +30,7 @@ YELLOW=(255, 255, 0)
 BLUE=(0,0,255)
 BLACK=(0,0,0)
 screen.fill(WHITE)
-pg.draw.circle(screen, BLACK, (r,r), r, width=20)
+pg.draw.circle(screen, BLACK, (r,r), r, 20)
 v = pg.math.Vector2(50, 50)
 center = pg.math.Vector2(r, r)
 
@@ -172,7 +171,7 @@ diffs = [-1] * count
 #deltas = [min(int(90 * i /count), 90) for i in range(count)]
 deltas = [1] * count
 frame_rate = 60
-lag_const = 1#2 * frame_rate
+lag_const = 3* frame_rate
 circle_center = np.array([r,r])
 
 dot_radius = 25
@@ -189,7 +188,7 @@ user_controlled = False
 t = 0
 
 
-rot_speed = .666
+rot_speed = .333
 while running:
     t += 1
     clock.tick(frame_rate)
@@ -232,9 +231,9 @@ while running:
             if event.key == pygame.K_SPACE:
                 user_controlled = not user_controlled
     #clock.tick(60)
-    #pg.draw.circle(screen, WHITE, v + center, 5, width=10)
+    #circle(screen, WHITE, v + center, 5, 10)
     #v = v.rotate(1)
-    #pg.draw.circle(screen, BLACK, v + center, 5, width=10)
+    #circle(screen, BLACK, v + center, 5, 10)
     #erase_arm(arm_vecs)
     #draw_arm(arm_vecs, GREEN)
 
@@ -269,8 +268,8 @@ while running:
     #draw_arm(mat_for_trans(r,r).dot(mat_for_degree(45).dot(arm_vecs)), YELLOW)
     #draw_arm(mat_for_degree(45).dot(mat_for_trans(r,r).dot(arm_vecs)), BLUE)
     #print(mat_for_degree(45).dot(mat_for_trans(100,100).dot(arm_vecs)))
-    pg.draw.circle(screen, BLACK, (r,r), r, width=20)
-    #pg.draw.circle(screen, RED, (r,r), r/2, width=1)
+    pg.draw.circle(screen, BLACK, (r,r), r, 20)
+    #circle(screen, RED, (r,r), r/2, 1)
     for dot_index in range(dots_count):
         dot_point = dotlag[int(len(dotlag) * dot_index / dots_count)]
         pg.draw.circle(screen, BLACK, dot_point, dot_radius)

@@ -1,0 +1,7 @@
+name: dots-env
+dependencies:
+        - python=3
+        - numpy
+        - pip
+        - pip:
+                - pygame
